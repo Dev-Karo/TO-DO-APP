@@ -1,67 +1,75 @@
-//we are picking the selector to be available in our js
-
+// Selecting DOM Elements
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
 
-// Add EventListener
+// Add Event Listeners
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
-filterOption.addEventListener("click", filterTodo);
+filterOption.addEventListener("change", filterTodo); // 'change' works better with dropdowns
 
-//Create function that will create to do for me
+// Function to Add a New Todo Item
 function addTodo(event) {
-  // prevent the form (input type) from sumbmitting
+  // Prevent the form from submitting
   event.preventDefault();
 
-  //create to Div
+  // Create Todo Div
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
 
-  //create Li
+  // Create Todo List Item (li)
   const newTodo = document.createElement("li");
-  newTodo.innerText = todoInput.value;
+  newTodo.innerText = todoInput.value; // Get input value
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo);
 
-  //check mark button
+  // Add Checkmark Button
   const completedButton = document.createElement("button");
-  completedButton.innerHTML = '<i class = "fas fa-check">';
+  completedButton.innerHTML = '<i class="fas fa-check"></i>'; // Font Awesome check icon
   completedButton.classList.add("complete-btn");
   todoDiv.appendChild(completedButton);
 
-  //check Trash button
+  // Add Trash Button
   const trashButton = document.createElement("button");
-  trashButton.innerHTML = '<i class = "fas fa-trash">';
+  trashButton.innerHTML = '<i class="fas fa-trash"></i>'; // Font Awesome trash icon
   trashButton.classList.add("trash-btn");
   todoDiv.appendChild(trashButton);
 
-  //Append to the list
+  // Append the todoDiv to the todoList
   todoList.appendChild(todoDiv);
 
-  //clear the todo input value
+  // Clear Input Field
   todoInput.value = "";
 }
 
+// Function to Handle Delete and Complete
 function deleteCheck(e) {
   const item = e.target;
-  //Delete the todo button by clicking on the trash button
-  if (item.classList[0] === "trash-btn") {
-    const todo = item.parentElement;
+
+  // Handle Clicks on Trash Button
+  if (
+    item.classList.contains("trash-btn") ||
+    item.classList.contains("fa-trash")
+  ) {
+    const todo = item.closest(".todo");
     todo.classList.add("fall");
-    //todo.remove();
     todo.addEventListener("transitionend", function () {
       todo.remove();
     });
   }
-  //checkmark area
-  if (item.classList[0] === "complete-btn") {
-    const todo = item.parentElement;
+
+  // Handle Clicks on Complete Button
+  if (
+    item.classList.contains("complete-btn") ||
+    item.classList.contains("fa-check")
+  ) {
+    const todo = item.closest(".todo");
     todo.classList.toggle("completed");
   }
 }
 
+// Function to Filter Todos Based on Status
 function filterTodo(e) {
   const todos = todoList.childNodes;
   todos.forEach(function (todo) {

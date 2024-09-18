@@ -1,119 +1,253 @@
+/* General Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  background-image: linear-gradient(120deg, #f5d25e, #fda085);
-  color: white;
+  background-color: #1d1f2f; /* Dark background for a premium look */
+  color: #eaeaea; /* Light text for contrast and readability */
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
 }
+
 header {
-  font-size: 1.5rem;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ffda79; /* Elegant gold color for a premium feel */
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Subtle text shadow for depth */
 }
-header,
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.how-it-works,
+.todo-app {
+  flex: 1;
+  max-width: 45%;
+  padding: 2rem;
+  background-color: #25283b; /* Darker background for sections */
+  border-radius: 12px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3); /* Increased shadow width for more depth */
+  margin: 1rem;
+}
+
+.how-it-works h2,
+.todo-app h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffda79; /* Matching gold color for headers */
+}
+
+.how-it-works p,
+.how-it-works ul {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #eaeaea; /* Light text for readability */
+}
+
+.how-it-works ul {
+  list-style: disc inside;
+  padding-left: 1.5rem;
+}
+
 form {
-  min-height: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-form input,
-form button {
-  padding: 0.5rem;
-  font-size: 2rem;
-  border: none;
-  background: white;
-}
-form button {
-  color: #d88771;
-  background: white;
-  cursor: pointer;
-  transition: all 0.5s ease;
-}
-form button:hover {
-  background: #d88771;
-  color: white;
+  margin-bottom: 2rem;
 }
 
+form input {
+  padding: 0.8rem;
+  font-size: 1.5rem;
+  border: 2px solid #ffda79; /* Gold border for input fields */
+  border-radius: 8px;
+  background: #fff;
+  color: #333;
+  margin-right: 0.5rem;
+  outline: none;
+  width: 300px;
+  transition: all 0.3s ease;
+}
+
+form input:focus {
+  border-color: #ffda79; /* Focus effect for input field */
+}
+
+form button {
+  padding: 0.8rem;
+  font-size: 1.5rem;
+  border: none;
+  background: #49ca49;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  background: #3bb33b;
+}
+
+.select {
+  margin-left: 1rem;
+  position: relative;
+}
+/*
+select {
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: 2px solid #ffda79; /* Gold border for select field *
+  background: #000; /* Black background for dropdown *
+  color: #eaeaea; /* Light text color for dropdown *
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  width: 12rem; /* Increased width for better readability *
+  transition: all 0.3s ease;
+}
+
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  color: #ffda79; /* Gold color for dropdown arrow 
+}
+*/
+/* Container for the Select Dropdown */
+.select {
+  margin-left: 1rem;
+  position: relative;
+  width: 14rem; /* Adjusted width for better space */
+}
+
+/* Select Dropdown Styles */
+select {
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: 2px solid #ffda79; /* Gold border */
+  background: #000; /* Black background for the dropdown */
+  color: #eaeaea; /* Light text color */
+  cursor: pointer;
+  outline: none;
+  appearance: none; /* Hide default dropdown arrow */
+  width: 100%; /* Use full width of container */
+  transition: all 0.3s ease;
+}
+
+/* Custom Gold Arrow */
+.select::after {
+  content: "\25BC"; /* Unicode for the down arrow */
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #ffda79; /* Gold color for the arrow */
+  pointer-events: none; /* Prevent interaction with the arrow */
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect for the Dropdown */
+select:hover {
+  border-color: #ffda79; /* Highlight border on hover */
+}
+
+.select:hover::after {
+  color: #ffda79; /* Keep the arrow gold on hover */
+}
+
+/* Transition for smoother effect when interacting */
+select:focus {
+  border-color: #ffda79; /* Keep gold border on focus */
+  outline: none;
+}
+
+/*  */
 .todo-container {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
+
 .todo-list {
-  min-width: 30%;
+  min-width: 350px;
   list-style: none;
 }
+
 .todo {
-  margin: 0.5rem;
-  background: white;
-  color: black;
-  font-size: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #eaeaea; /* Light background for tasks */
+  color: #333;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
+  transition: all 0.3s ease;
 }
-.todo li {
+
+.todo:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.todo-item {
   flex: 1;
+  font-size: 1.2rem;
 }
+
 .complete-btn,
 .trash-btn {
-  background: #ff6f47;
-  color: white;
   border: none;
-  padding: 1rem;
-  font-size: 1rem;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 .complete-btn {
   background: #49ca49;
 }
-.todo-item {
-  padding: 0rem 0.5rem;
+
+.complete-btn:hover {
+  background: #3bb33b;
+  transform: scale(1.1); /* Slightly enlarge on hover */
 }
-.fa-trash,
-.fa-check {
-  pointer-events: none;
+
+.trash-btn {
+  background: #ff6f47;
+  margin-left: 0.5rem;
 }
+
+.trash-btn:hover {
+  background: #e65c3e;
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
 .completed {
   text-decoration: line-through;
-  opacity: 0.5;
+  opacity: 0.6;
+  transition: all 0.3s ease; /* Smooth transition when toggling completed status */
 }
+
 .fall {
   transform: translateY(8rem) rotate(20deg);
   opacity: 0;
   transition: transform 0.5s ease, opacity 0.5s ease;
-}
-select {
-  border: none;
-  outline: none;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-}
-.select {
-  margin: 1rem;
-  position: relative;
-  overflow: hidden;
-}
-select {
-  color: #ff6f47;
-  width: 10rem;
-  cursor: pointer;
-  padding: 1rem;
-}
-.select::after {
-  content: "\25BC";
-  position: absolute;
-  background: #ff6f47;
-  top: 0;
-  right: 0;
-  padding: 1rem;
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-.select:hover::after {
-  background: white;
-  color: #ff6f47;
 }

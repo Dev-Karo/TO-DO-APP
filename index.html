@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,23 +24,48 @@
     <header>
       <h1>To-Do App</h1>
     </header>
-    <br />
-    <form>
-      <input type="text" class="todo-input" name="todo-input" />
-      <button class="todo-button" type="submit">
-        <i class="fas fa-plus-square"></i>
-      </button>
-      <div class="select">
-        <select name="todos" class="filter-todo">
-          <option value="all">All</option>
-          <option value="completed">Completed</option>
-          <option value="uncompleted">Uncompleted</option>
-        </select>
+
+    <div class="container">
+      <!-- How It Works Section -->
+      <div class="how-it-works">
+        <h2>How It Works</h2>
+        <p>
+          Welcome to the To-Do App! This application is designed to help you manage your tasks efficiently. 
+          With a simple and intuitive interface, you can easily add new tasks, mark them as completed, and 
+          delete them when they're no longer needed.
+        </p>
+        <p>
+          Here's a quick guide on how to use the app:
+          <ul>
+            <li><strong>Add a Task:</strong> Type your task in the input field and click the <i class="fas fa-plus-square"></i> button to add it to the list.</li>
+            <li><strong>Mark as Completed:</strong> Once you finish a task, click the <i class="fas fa-check"></i> button to mark it as completed. Completed tasks will have a strikethrough effect, making it clear which ones are done.</li>
+            <li><strong>Delete a Task:</strong> If a task is no longer needed, you can remove it by clicking the <i class="fas fa-trash"></i> button.</li>
+            <li><strong>Filter Tasks:</strong> Use the dropdown menu to filter your tasks based on their status (All, Completed, or Uncompleted).</li>
+          </ul>
+        </p>
       </div>
-    </form>
-    <div class="todo-container">
-      <ul class="todo-list"></ul>
+
+      <!-- To-Do App Section -->
+      <div class="todo-app">
+        <form>
+          <input type="text" class="todo-input" name="todo-input" />
+          <button class="todo-button" type="submit">
+            <i class="fas fa-plus-square"></i>
+          </button>
+          <div class="select">
+            <select name="todos" class="filter-todo">
+              <option value="all">All</option>
+              <option value="completed">Completed</option>
+              <option value="uncompleted">Uncompleted</option>
+            </select>
+          </div>
+        </form>
+        <div class="todo-container">
+          <ul class="todo-list"></ul>
+        </div>
+      </div>
     </div>
+
     <script src="./app.js"></script>
   </body>
 </html>
